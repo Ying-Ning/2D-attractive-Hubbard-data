@@ -21,13 +21,13 @@ This repository contains finite-size PQMC data for the two-dimensional attractiv
 └── Data-for-figure9/
 ```
 
-The capitalization of `FInite-size-Result` is retained exactly as it appears in the repository. Parameter directories follow the naming convention `U{U}n{n}`. For example, `U4n0.625` denotes U/t=4 and n=0.625.
+The capitalization of `FInite-size-Result` is retained exactly as it appears in the repository. Parameter directories follow the naming convention `U{U}n{n}`. For example, `U4n0.625` denotes $U/t=4$ and $n=0.625$.
 
 The main parameter grid is:
 
-- U/t=2,4,6,8,10,12;
-- n=0.250,0.375,0.500,0.625,0.750,0.875,1.000;
-- L=4,8,12,16,20,24.
+- $U/t=2,4,6,8,10,12$;
+- $n=0.250,0.375,0.500,0.625,0.750,0.875,1.000$;
+- $L=4,8,12,16,20,24$.
 
 ## Finite-size data
 
@@ -36,7 +36,7 @@ Each parameter directory contains the following five types of physical data:
 - `Energy.txt`: energy;
 - `Dble-Occupancy.txt`: double occupancy;
 - `Condensate-Fraction.txt`: condensate fraction;
-- `Kspace-Pair-Structure-Factor.txt`: momentum-space pair structure factor, normalized by L^2;
+- `Kspace-Pair-Structure-Factor.txt`: momentum-space pair structure factor, normalized by $L^2$;
 - `Rspace-Pair-Correlation-Function/`: real-space pair correlation functions.
 
 ### Summary data format
@@ -60,9 +60,9 @@ L              PBC-ave                PBC-err                TABC-ave           
 
 TABC columns are currently available for the following parameters:
 
-- U/t=2: n=0.250,0.375,0.500,0.625,0.750,0.875;
-- U/t=4: n=0.250,0.375,0.500,0.625;
-- U/t=6: n=0.250.
+- $U/t=2$: $n=0.250,0.375,0.500,0.625,0.750,0.875$;
+- $U/t=4$: $n=0.250,0.375,0.500,0.625$;
+- $U/t=6$: $n=0.250$.
 
 ### Real-space pair correlation functions
 
@@ -75,23 +75,25 @@ Rspace-Pair-Correlation-Function-L8.txt
 Rspace-Pair-Correlation-Function-L24.txt
 ```
 
-Each file contains six columns and has no header. The first two columns specify the spatial indices, the middle two give the mean and statistical error of the real-space pair-correlation function, and the final two give the mean and statistical error of the vertex contribution to the real-space pair-correlation function. Each file for a system of linear size L contains L^2 rows.
+Each file contains six columns and has no header. The first two columns specify the spatial indices, the middle two give the mean and statistical error of the real-space pair-correlation function, and the final two give the mean and statistical error of the vertex contribution to the real-space pair-correlation function. Each file for a system of linear size $L$ contains $L^2$ rows.
 
 ## The `inf` row
 
-In `Energy.txt` and `Dble-Occupancy.txt`, an `inf` row denotes an L -> infinity estimate obtained from the largest system sizes judged to have converged. The last three available sizes are tested first. If those three points do not pass, the last two sizes are tested. Every pair of selected points must satisfy
+In `Energy.txt` and `Dble-Occupancy.txt`, an `inf` row denotes an $L\to\infty$ estimate obtained from the largest system sizes judged to have converged. The last three available sizes are tested first. If those three points do not pass, the last two sizes are tested. Every pair of selected points must satisfy
 
-```text
-|x_i-x_j| < 3 * (err_i + err_j)
-```
+$$
+\left|x_i-x_j\right| < 3\left(\mathrm{err}_i+\mathrm{err}_j\right).
+$$
 
 When the convergence criterion is satisfied, the `inf` average and error are the arithmetic means of the selected averages and error bars, respectively:
 
-```text
-x_inf = (1/N) * sum_i(x_i)
-err_inf = (1/N) * sum_i(err_i)
-N = 2 or 3
-```
+$$
+\begin{aligned}
+x_\infty &= \frac{1}{N}\sum_i x_i, \\
+\mathrm{err}_\infty &= \frac{1}{N}\sum_i \mathrm{err}_i, \\
+N &\in \{2,3\}.
+\end{aligned}
+$$
 
 PBC and TABC data are tested independently in files containing both boundary conditions. If one side does not converge, that side of the `inf` row is left blank. For example:
 
@@ -105,18 +107,18 @@ This example indicates that only the TABC data converged. For `U2n1.000`, the `i
 
 ### `Data-for-figure1`
 
-This directory contains ED and PQMC comparisons for four observables at n=0.625 and L=4:
+This directory contains ED and PQMC comparisons for four observables at $n=0.625$ and $L=4$:
 
 ```text
 U/t            ED                       PQMC-ave                 PQMC-err
 ```
 
-The files are `Energy.txt`, `Dble-Occupancy.txt`, `Condensate-Fraction.txt`, and `Kspace-Pair-Structure-Factor.txt`. They cover U/t=0,1,...,12.
+The files are `Energy.txt`, `Dble-Occupancy.txt`, `Condensate-Fraction.txt`, and `Kspace-Pair-Structure-Factor.txt`. They cover $U/t=0,1,\ldots,12$.
 
 ### `Data-for-figure8`
 
-This directory contains matrix-form data for the energy and double occupancy. The averages and errors of each observable are stored separately in `_ave.txt` and `_err.txt` files. Rows correspond to U/t, and columns correspond to particle density n.
+This directory contains matrix-form data for the energy and double occupancy. The averages and errors of each observable are stored separately in `_ave.txt` and `_err.txt` files. Rows correspond to $U/t$, and columns correspond to particle density $n$.
 
 ### `Data-for-figure9`
 
-This directory contains matrix-form data for the condensate fraction and momentum-space pair structure factor. Averages and errors are stored separately. Rows correspond to U/t, and columns correspond to particle density n.
+This directory contains matrix-form data for the condensate fraction and momentum-space pair structure factor. Averages and errors are stored separately. Rows correspond to $U/t$, and columns correspond to particle density $n$.
