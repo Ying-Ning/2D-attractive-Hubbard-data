@@ -8,7 +8,7 @@ This repository contains finite-size PQMC data for the two-dimensional attractiv
 
 ```text
 .
-├── FInite-size-Result/
+├── Finite-size-Result/
 │   └── U{U}n{n}/
 │       ├── Energy.txt
 │       ├── Dble-Occupancy.txt
@@ -21,7 +21,7 @@ This repository contains finite-size PQMC data for the two-dimensional attractiv
 └── Data-for-figure9/
 ```
 
-The capitalization of `FInite-size-Result` is retained exactly as it appears in the repository. Parameter directories follow the naming convention `U{U}n{n}`. For example, `U4n0.625` denotes $U/t=4$ and $n=0.625$.
+The capitalization of `Finite-size-Result` is retained exactly as it appears in the repository. Parameter directories follow the naming convention `U{U}n{n}`. For example, `U4n0.625` denotes $U/t=4$ and $n=0.625$.
 
 The main parameter grid is:
 
