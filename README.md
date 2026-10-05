@@ -156,6 +156,22 @@ U/t            ED                       PQMC-ave                 PQMC-err
 
 The files are `Total-Energy-Density.txt`, `Dble-Occupancy.txt`, `Condensate-Fraction.txt`, and `Mean-squared-Pairing-Order.txt`. They cover $U/t=0,1,\ldots,12$.
 
+`Model-Parameter.txt` lists the imaginary-time step $\Delta\tau t$ and projection length $\Theta t$ used in the $L=4$ PQMC calculations:
+
+```text
+U/t           1        2        3        4        5        6        7        8        9        10       11       12
+Δτ t          0.05     0.05     0.05     0.05     0.045    0.04     0.035    0.03     0.027    0.024    0.022    0.02
+Θ t           45       40       35       30       25       20       15       10       10       10       10       10
+```
+
+The same $U/t$-dependent values of $\Delta\tau t$ are also used in all subsequent finite-size PQMC calculations in this repository, while the tabulated $\Theta t$ values serve as the $L=4$ reference values.
+
+For systems with $L>4$, the projection length is increased with the system size according to
+
+$$
+\Theta t(L)=\Theta t(4)+L-4.
+$$
+
 ### `Data-for-figure8`
 
 This directory contains matrix-form data for the total energy density and double occupancy. The averages and errors of each observable are stored separately in `_ave.txt` and `_err.txt` files. Rows correspond to $U/t$, and columns correspond to particle density $n$.
