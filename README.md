@@ -159,9 +159,9 @@ The files are `Total-Energy-Density.txt`, `Dble-Occupancy.txt`, `Condensate-Frac
 `Model-Parameter.txt` lists the imaginary-time step $\Delta\tau t$ and projection length $\Theta t$ used in the $L=4$ PQMC calculations:
 
 ```text
-U/t           1        2        3        4        5        6        7        8        9        10       11       12
-Δτ t          0.05     0.05     0.05     0.05     0.045    0.04     0.035    0.03     0.027    0.024    0.022    0.02
-Θ t           45       40       35       30       25       20       15       10       10       10       10       10
+U/t         1        2        3        4        5        6        7        8        9        10       11       12
+Δτt         0.05     0.05     0.05     0.05     0.045    0.04     0.035    0.03     0.027    0.024    0.022    0.02
+Θt          45       40       35       30       25       20       15       10       10       10       10       10
 ```
 
 The same $U/t$-dependent values of $\Delta\tau t$ are also used in all subsequent finite-size PQMC calculations in this repository, while the tabulated $\Theta t$ values serve as the $L=4$ reference values.
